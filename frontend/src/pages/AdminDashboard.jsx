@@ -5,6 +5,7 @@ import useAuthStore from "../store/authStore";
 
 function AdminDashboard() {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const token = useAuthStore((state) => state.token);
   const user = useAuthStore((state) => state.user);
