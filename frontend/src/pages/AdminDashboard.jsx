@@ -31,8 +31,8 @@ function AdminDashboard() {
       };
 
       const [statsResponse, usersResponse] = await Promise.all([
-        axios.get("http://localhost:5000/api/admin/stats", config),
-        axios.get("http://localhost:5000/api/admin/users", config),
+        axios.get(`${API_URL}/api/admin/stats`, config),
+        axios.get(`${API_URL}/api/admin/users`, config),
       ]);
 
       setStats(statsResponse.data);
@@ -72,7 +72,7 @@ function AdminDashboard() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/admin/users/${id}`,
+        `${API_URL}/api/admin/users/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

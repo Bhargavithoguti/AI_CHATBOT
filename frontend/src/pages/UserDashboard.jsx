@@ -3,12 +3,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/authStore";
 
+
+
 function UserDashboard() {
   const navigate = useNavigate();
 
   const token = useAuthStore((state) => state.token);
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const darkMode = useAuthStore((state) => state.darkMode);
   const toggleDarkMode = useAuthStore((state) => state.toggleDarkMode);
@@ -19,7 +22,7 @@ function UserDashboard() {
   const fetchChats = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/chat",
+        `${API_URL}/api/chat`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

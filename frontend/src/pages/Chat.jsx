@@ -21,7 +21,7 @@ function Chat() {
   const fetchChats = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/chat",
+        `${API_URL}/api/chat`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -68,7 +68,7 @@ function Chat() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/chat",
+        `${API_URL}/api/chat`,
         {
           message: currentMessage,
         },
