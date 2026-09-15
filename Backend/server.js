@@ -10,7 +10,15 @@ const { connectDB } = require("./config/db");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Local frontend
+      "https://ai-chatbot-eta-eight-51.vercel.app", // Deployed frontend
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
