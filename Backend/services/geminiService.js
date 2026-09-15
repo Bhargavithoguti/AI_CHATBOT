@@ -10,7 +10,7 @@ const generateAIReply = async (message) => {
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-lite",
+        model: "gemini-3.5-flash-lite",
         config: {
           systemInstruction: `
 You are AI Chatbot, a helpful and friendly virtual assistant.
